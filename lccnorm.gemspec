@@ -9,7 +9,7 @@ Gem::Specification.new do |spec|
   spec.authors       = ["Sean Redmond"]
   spec.email         = ["github-smr@sneakemail.com"]
 
-  spec.summary       = %q{Normalize Library of Congress Catalog Numbers.}
+  spec.summary       = %q{Normalize Library of Congress Control Numbers.}
   spec.homepage      = "https://github.com/seanredmond/lccnorm-rb"
   spec.license       = "MIT"
 
