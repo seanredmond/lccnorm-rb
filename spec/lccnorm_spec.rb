@@ -29,4 +29,49 @@ RSpec.describe Lccnorm do
         to raise_error(Lccnorm::InvalidLccnError)
     end
   end
+
+  describe "#valid?" do
+    it "Returns true for valid LCCNs" do
+      # 8 digits
+      expect(Lccnorm::valid?('79139101')).to be true
+
+      # 1 alphabetic character + 8 digits
+      expect(Lccnorm::valid?('n78890351')).to be true
+
+      # 2 alphabetic characters + 8 digits
+      expect(Lccnorm::valid?('gm71005810')).to be true
+
+      # 2 digits + 8 digits
+      expect(Lccnorm::valid?('2001000002')).to be true
+
+      # 1 alphabetic character + 2 alphabetic characters + 8 digits
+      expect(Lccnorm::valid?('agr14000102')).to be true
+
+      # 1 alphabetic character + 2 digits + 8 digits
+      expect(Lccnorm::valid?('a2002003456')).to be true
+      
+      # 2 alphabetic characters + 10 digits
+      expect(Lccnorm::valid?('mm2002084896')).to be true
+    end
+
+    it "Returns false for invalid LCCNS" do
+      # not enough characters
+      expect(Lccnorm::valid?('7913910')).to be false
+
+      # 1 character prefix, but not a letter
+      expect(Lccnorm::valid?('078890351')).to be false
+
+      # 2 character prefix, mixed letter and number
+      expect(Lccnorm::valid?('a078890351')).to be false
+
+      # 3 character prefix, doesn't start with a letter
+      expect(Lccnorm::valid?('4gr14000102')).to be false
+
+      # 3 character prefix, 2nd & 3rd characters mixed letter and number
+      expect(Lccnorm::valid?('ag414000102')).to be false
+
+      # 1 alphabetic character + 11 digits
+      expect(Lccnorm::valid?('m02002084896')).to be false
+    end
+  end
 end

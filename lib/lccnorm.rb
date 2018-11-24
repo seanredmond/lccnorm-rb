@@ -47,4 +47,11 @@ module Lccnorm
     
   end
 
+  def self.valid?(lccn)
+    if lccn =~ /\A([A-z]{2}\d{2}|([A-z]?([A-z]{2}|\d{2}))|[A-z])?\d{8}\z/
+      return true
+    end
+
+    return false
+  end                                                
 end
