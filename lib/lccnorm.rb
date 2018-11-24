@@ -25,12 +25,7 @@ module Lccnorm
   #            substring with zeros until the length is six.
   #
   def self.normalize(lccn)
-    return dehyphen(lccn.tr(' ', '').split('/')[0])
-  end
-
-  # Carry out the normalization for LCCNs with hyphens
-  def self.dehyphen(lccn)
-    l, r = lccn.split('-', 2)
+    l, r = lccn.tr(' ', '').split('/')[0].split('-', 2)
 
     # No hyphen? Easy
     if r.nil?
@@ -51,4 +46,5 @@ module Lccnorm
             "or fewer")
     
   end
+
 end
