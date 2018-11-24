@@ -1,5 +1,11 @@
 # Lccnorm
 
+[![Gem Version](http://img.shields.io/gem/v/lccnorm.svg)][gem]
+[![Build Status](http://img.shields.io/travis/seanredmond/lccnorm-rb.svg)][travis]
+
+[gem]: https://rubygems.org/gems/lccnorm
+[travis]: http://travis-ci.org/seanredmond/lccnorm-rb
+
 Normalize and validate Library of Congress Control Numbers according to [LOC
 guidelines](https://www.loc.gov/marc/lccn-namespace.html)
 
