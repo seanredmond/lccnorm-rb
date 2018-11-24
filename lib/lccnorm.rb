@@ -47,6 +47,21 @@ module Lccnorm
     
   end
 
+  # Validate LCCN according to Library of Congress rules
+  # (https://www.loc.gov/marc/lccn-namespace.html)
+  #
+  # A normalized LCCN is a character string eight to twelve characters in
+  # length. (For purposes of this description characters are ordered from left
+  # to right -- "first" means "leftmost".)
+  #
+  # * The rightmost eight characters are always digits.
+  # * If the length is 9, then the first character must be alphabetic.
+  # * If the length is 10, then the first two characters must be either both
+  #   digits or both alphabetic.
+  # * If the length is 11, then the first character must be alphabetic and the
+  #   next two characters must be either both digits or both alphabetic.
+  # * If the length is 12, then the first two characters must be alphabetic and
+  #   the remaining characters digits.
   def self.valid?(lccn)
     if lccn =~ /\A([A-z]{2}\d{2}|([A-z]?([A-z]{2}|\d{2}))|[A-z])?\d{8}\z/
       return true
