@@ -1,8 +1,7 @@
 # Lccnorm
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/lccnorm`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+Normalize and validate Library of Congress Control Numbers according to [LOC
+guidelines](https://www.loc.gov/marc/lccn-namespace.html)
 
 ## Installation
 
@@ -22,7 +21,17 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+Get a normalized version of an LCCN:
+
+    > Lccnorm::normalize("75-425165//r75")
+     => "75425165"
+     
+Check that an LCCN is valid:
+
+    > Lccnorm::valid?("75425165")
+     => true
+    > Lccnorm::valid?("not even a number")
+     => false
 
 ## Development
 
